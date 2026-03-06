@@ -1,0 +1,116 @@
+.sessionContainer {
+    text-align: center;
+    padding: var(--spacing-lg);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.sessionTitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.timerDisplay {
+    font-size: 4rem;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.adjustments {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.adjustBtn {
+    background: none;
+    border: 1px solid var(--color-text-secondary);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.adjustBtn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* Breathing Animation */
+.breathingCircle {
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-lg);
+    opacity: 0.6;
+}
+
+.instruction {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    min-height: 1.5em;
+}
+
+/* Stretch Steps */
+.stepList {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.step {
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-primary);
+    border-radius: var(--border-radius-sm);
+}
+
+.pageTitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.sessionCard {
+    cursor: pointer;
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.sessionCard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-hover);
+    border: 1px solid var(--color-accent);
+}
+
+.iconWrapper {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+}
+
+.description {
+    color: var(--color-text-secondary);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}

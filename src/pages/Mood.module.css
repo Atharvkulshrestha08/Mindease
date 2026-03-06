@@ -1,0 +1,61 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.chartContainer {
+    height: 300px;
+    width: 100%;
+}
+
+.historySection {
+    margin-top: var(--spacing-xl);
+}
+
+.historyTitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.historyList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.historyItem {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background-color: white;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.historyDate {
+    color: var(--color-text-secondary);
+}
+
+.historyMood {
+    text-transform: capitalize;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.emptyText {
+    color: var(--color-text-secondary);
+    font-style: italic;
+}

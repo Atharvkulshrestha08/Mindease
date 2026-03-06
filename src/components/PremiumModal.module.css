@@ -1,0 +1,147 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(16, 42, 67, 0.6);
+    backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal {
+    max-width: 420px;
+    width: 100%;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--color-text-secondary);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.closeBtn:hover {
+    opacity: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-warning);
+    color: #744210;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.modal h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.description {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    margin-bottom: 2rem;
+}
+
+.priceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: -1rem;
+}
+
+.price {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    line-height: 1;
+}
+
+.period {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-left: 0.5rem;
+    align-self: flex-end;
+    margin-bottom: 0.75rem;
+}
+
+.features {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.upgradeBtn {
+    width: 100%;
+    height: 56px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: var(--gradient-accent) !important;
+    box-shadow: 0 4px 20px rgba(51, 78, 104, 0.3);
+}
+
+.footer {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+.processing {
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.processing h3 {
+    margin-top: 1rem;
+    color: var(--color-text-primary);
+}
+
+.processing p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}

@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.moodBtn {
+    flex: 1;
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-md);
+    background: white;
+    transition: all var(--transition-fast);
+    color: var(--color-text-secondary);
+}
+
+.moodBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-subtle);
+    border-color: var(--hover-color);
+    color: var(--color-text-primary);
+}
+
+.selected {
+    background-color: var(--color-accent);
+    color: white !important;
+    border-color: var(--color-accent);
+    transform: scale(1.02);
+    box-shadow: var(--box-shadow-hover);
+}

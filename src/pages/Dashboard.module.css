@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.greeting {
+    font-size: var(--font-size-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.03em;
+}
+
+.subtext {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+}
+
+.streakBadge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: white;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-subtle);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.sectionTitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.moodOptions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-sm);
+}
+
+.moodBtn {
+    flex: 1;
+    min-width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-md);
+    background: white;
+    transition: all var(--transition-medium);
+    color: var(--color-text-secondary);
+}
+
+.moodBtn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--hover-color);
+    color: var(--color-text-primary);
+}
+
+.selectedMood {
+    background-color: var(--color-accent);
+    color: white !important;
+    border-color: var(--color-accent);
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.suggestionText {
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.chartContainer {
+    height: 350px;
+    width: 100%;
+}
+
+.quickActions {
+    display: flex;
+    gap: var(--spacing-sm);
+}

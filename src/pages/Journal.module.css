@@ -1,0 +1,131 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+.editorSection {
+    margin-bottom: var(--spacing-xl);
+}
+
+.promptsList {
+    margin-bottom: var(--spacing-md);
+}
+
+.promptsLabel {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.chip {
+    background-color: #F0F2F5;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.chip:hover {
+    background-color: #E0E2E5;
+}
+
+.activePrompt {
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-accent);
+}
+
+.textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: var(--spacing-sm);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    resize: vertical;
+    outline: none;
+    margin-bottom: var(--spacing-md);
+    transition: border-color var(--transition-fast);
+}
+
+.textarea:focus {
+    border-color: var(--color-accent);
+}
+
+.actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+}
+
+.historyTitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.entriesList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.entryCard {
+    position: relative;
+}
+
+.entryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.entryDate {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.deleteBtn {
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+    padding: 4px;
+}
+
+.deleteBtn:hover {
+    color: var(--color-danger);
+    opacity: 1;
+}
+
+.entryPrompt {
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.entryContent {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.emptyText {
+    color: var(--color-text-secondary);
+    font-style: italic;
+}

@@ -59,3 +59,19 @@
     color: var(--color-text-secondary);
     font-style: italic;
 }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .chartContainer {
+        height: 220px;
+    }
+
+    .historyItem {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+
+    .pageTitle {
+        font-size: var(--font-size-lg);
+    }
+}

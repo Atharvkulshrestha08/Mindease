@@ -129,3 +129,32 @@
     color: var(--color-text-secondary);
     font-style: italic;
 }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .textarea {
+        min-height: 120px;
+    }
+
+    .chips {
+        gap: 6px;
+    }
+
+    .chip {
+        padding: 5px 10px;
+        font-size: var(--font-size-xs);
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+
+    .entryHeader {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+}

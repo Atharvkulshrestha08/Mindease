@@ -1,16 +1,22 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
-import { Smile, Frown, Meh, Activity, Zap, TrendingUp, Calendar } from 'lucide-react';
+import { Smile, Frown, Meh, Activity, Zap, TrendingUp, Calendar, Compass, AlertTriangle } from 'lucide-react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import useLocalStorage from '../hooks/useLocalStorage';
+import useAnimeOnMount from '../hooks/useAnimeOnMount';
+import { useUser } from '../context/UserContext';
+import { useTheme } from '../context/ThemeContext';
+import { getCurrentActivity } from '../utils/wellnessPlan';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [moodLogs, setMoodLogs] = useLocalStorage('moodLogs', []);
+    const { user } = useUser();
+    const { setMoodTheme } = useTheme();
     const today = new Date().toISOString().split('T')[0];
 
     const todaysMood = useMemo(() => {
@@ -21,6 +27,8 @@ const Dashboard = () => {
         const newLog = { date: today, mood, timestamp: new Date().toISOString() };
         const filteredLogs = moodLogs.filter(log => log.date !== today);
         setMoodLogs([...filteredLogs, newLog]);
+        // Update mood-responsive theme
+        setMoodTheme(mood);
     };
 
     const getGreeting = () => {
@@ -59,19 +67,34 @@ const Dashboard = () => {
         return data;
     }, [moodLogs]);
 
-    // Streak Logic
+    // Streak Logic — real consecutive day calculation
     const streak = useMemo(() => {
-        let currentStreak = 0;
-        const sortedLogs = [...moodLogs].sort((a, b) => new Date(b.date) - new Date(a.date));
-        if (sortedLogs.length === 0) return 0;
+        if (moodLogs.length === 0) return 0;
 
-        // Check if today is logged, if not check yesterday for start
-        const lastLogDate = new Date(sortedLogs[0].date);
+        const loggedDates = new Set(moodLogs.map(l => l.date));
+        let currentStreak = 0;
         const todayDate = new Date();
         todayDate.setHours(0, 0, 0, 0);
+        const todayStr = todayDate.toISOString().split('T')[0];
 
-        // logic is simplified for demo
-        return moodLogs.length;
+        // Start checking from today, then go backwards
+        let checkDate = new Date(todayDate);
+        // If today isn't logged yet, check from yesterday
+        if (!loggedDates.has(todayStr)) {
+            checkDate.setDate(checkDate.getDate() - 1);
+        }
+
+        while (true) {
+            const dateStr = checkDate.toISOString().split('T')[0];
+            if (loggedDates.has(dateStr)) {
+                currentStreak++;
+                checkDate.setDate(checkDate.getDate() - 1);
+            } else {
+                break;
+            }
+        }
+
+        return currentStreak;
     }, [moodLogs]);
 
     const getProactiveAdvice = () => {
@@ -117,12 +140,20 @@ const Dashboard = () => {
 
     const suggestion = getSuggestion();
 
+    // Staggered card entrance
+    const gridRef = useAnimeOnMount(':scope > *', {
+        staggerDelay: 100,
+        duration: 600,
+        translateY: 25,
+        delay: 150,
+    });
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
                 <div>
-                    <h2 className={styles.greeting}>{getGreeting()}, there.</h2>
-                    <p className={styles.subtext}>Here is your daily wellness overview.</p>
+                    <h2 className={styles.greeting}>{getGreeting()}, {user?.name || 'there'} 💜</h2>
+                    <p className={styles.subtext}>How are you feeling today? Take a moment — this space is yours.</p>
                 </div>
                 <div className={styles.streakBadge}>
                     <TrendingUp size={20} color="var(--color-accent)" />
@@ -130,9 +161,14 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div className={styles.grid}>
-                {/* Daily Check-in */}
-                <Card title="How are you feeling?" className={styles.moodSection}>
+            {/* "How are you?" — the first and most important thing */}
+            <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{ width: '100%', marginBottom: 'var(--spacing-lg)' }}
+            >
+                <Card title="How was your day?" className={styles.moodSection}>
                     <div className={styles.moodOptions}>
                         {moodOptions.map((option) => (
                             <button
@@ -147,6 +183,21 @@ const Dashboard = () => {
                         ))}
                     </div>
                 </Card>
+            </motion.div>
+
+            {/* Smart Reminder Banner */}
+            {!todaysMood && (
+                <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={styles.reminderBanner}
+                >
+                    <AlertTriangle size={18} />
+                    <span>We're here for you — tap above to check in 💛</span>
+                </motion.div>
+            )}
+
+            <div className={styles.grid} ref={gridRef}>
 
                 {/* Suggested Activity */}
                 <Card title="Recommended for You" className={styles.suggestionCard}>

@@ -1,0 +1,28 @@
+{
+    "name": "MindEase",
+    "short_name": "MindEase",
+    "description": "A privacy-first mental wellness platform. Track mood, reduce stress, and stay focused.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F0F4F8",
+    "theme_color": "#334E68",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/src/assets/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/src/assets/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": [
+        "health",
+        "wellness",
+        "mental health",
+        "productivity"
+    ]
+}

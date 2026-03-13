@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import FocusSession from '../components/sessions/FocusSession';
 import BreathingSession from '../components/sessions/BreathingSession';
 import StretchSession from '../components/sessions/StretchSession';
+import MeditationSession from '../components/sessions/MeditationSession';
 import styles from '../components/sessions/Sessions.module.css';
 
 const Sessions = () => {
@@ -33,6 +34,8 @@ const Sessions = () => {
                 return <BreathingSession />;
             case 'stretch':
                 return <StretchSession />;
+            case 'meditation':
+                return <MeditationSession />;
             default:
                 return null;
         }
@@ -55,6 +58,7 @@ const Sessions = () => {
     const sessions = [
         { id: 'focus', title: 'Focus Mode', icon: Clock, description: '25-minute timer to boost productivity.' },
         { id: 'breathing', title: 'Breathing', icon: Wind, description: '4-4-6 technique to calm your nerves.' },
+        { id: 'meditation', title: 'Meditation', icon: Activity, description: 'Guided meditations for inner peace.' },
         { id: 'journaling', title: 'Journaling', icon: BookOpen, description: 'Write down your thoughts and feelings.' },
         { id: 'stretch', title: 'Stretch', icon: Activity, description: 'Release tension with a quick routine.' },
     ];

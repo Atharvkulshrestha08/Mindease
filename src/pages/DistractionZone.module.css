@@ -89,20 +89,163 @@
     box-shadow: var(--box-shadow-hover);
 }
 
-/* Jokes Section */
-.jokeText {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--color-text-primary);
-    min-height: 80px;
+/* ═══ Snakes & Ladders Board ═══ */
+.snlBoard {
+    width: 100%;
+    max-width: 320px;
+    margin: 0.5rem auto;
+    border: 2px solid var(--color-accent-light);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.boardRow {
+    display: flex;
+}
+
+.boardCell {
+    flex: 1;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1.5rem 0;
-    font-style: italic;
+    position: relative;
+    background: var(--color-bg-primary);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 0.7rem;
+    transition: background 0.2s;
 }
 
-/* Game Board */
+.cellNum {
+    color: var(--color-text-secondary);
+    font-size: 0.6rem;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    opacity: 0.5;
+}
+
+.cellIcon {
+    font-size: 1rem;
+}
+
+.playerToken {
+    font-size: 1.2rem;
+    animation: playerBounce 0.5s ease;
+}
+
+.playerCell {
+    background: rgba(124, 58, 237, 0.15) !important;
+    box-shadow: inset 0 0 8px rgba(124, 58, 237, 0.2);
+}
+
+.snakeCell {
+    background: rgba(239, 68, 68, 0.08);
+}
+
+.ladderCell {
+    background: rgba(16, 185, 129, 0.08);
+}
+
+.botToken {
+    font-size: 1.1rem;
+    animation: playerBounce 0.5s ease;
+}
+
+.botCell {
+    background: rgba(236, 72, 153, 0.12) !important;
+    box-shadow: inset 0 0 8px rgba(236, 72, 153, 0.15);
+}
+
+.turnIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.turnActive {
+    font-weight: 700;
+    color: var(--color-accent);
+    background: rgba(124, 58, 237, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+}
+
+.snlControls {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.diceDisplay {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diceValue {
+    font-size: 2.8rem;
+    line-height: 1;
+}
+
+.diceRolling {
+    animation: diceShake 0.4s ease;
+}
+
+.snlMessage {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    min-height: 1.5em;
+    text-align: center;
+}
+
+.snlActions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.resetBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: 1px solid var(--color-accent-light);
+    color: var(--color-text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: all 0.2s;
+}
+
+.resetBtn:hover {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+@keyframes playerBounce {
+    0% { transform: scale(0.4); }
+    60% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes diceShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+/* ═══ Memory Game Board ═══ */
 .gameBoard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -164,5 +307,62 @@
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .videoSection {
+        padding: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .videoSectionTitle {
+        font-size: 1.2rem;
+    }
+
+    .videoGrid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .distractionGrid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .gameBoard {
+        gap: 0.35rem;
+    }
+
+    .cardItem {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .videoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .distractionGrid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

@@ -125,3 +125,38 @@
     color: var(--color-text-secondary);
     opacity: 0.6;
 }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .textarea {
+        min-height: 140px;
+    }
+
+    .resultsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .exportActions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .cardWrapper {
+        height: 180px;
+    }
+
+    .actions {
+        justify-content: stretch;
+    }
+
+    .actions button {
+        flex: 1;
+    }
+}

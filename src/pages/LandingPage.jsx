@@ -1,18 +1,74 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { animate, stagger } from 'animejs';
 import { ArrowRight, Shield, Heart, Zap } from 'lucide-react';
 import Button from '../components/Button';
+import useAnimeOnMount from '../hooks/useAnimeOnMount';
 import styles from './LandingPage.module.css';
+import logo from '../assets/logo.png';
 
 const LandingPage = () => {
+    // Staggered feature cards
+    const featuresRef = useAnimeOnMount(`.${styles.featureCard}`, {
+        staggerDelay: 150,
+        duration: 700,
+        translateY: 40,
+        delay: 300,
+    });
+
+    // Staggered badges
+    const badgesRef = useAnimeOnMount(`.${styles.badge}`, {
+        staggerDelay: 120,
+        duration: 500,
+        translateY: 20,
+        delay: 200,
+    });
+
+    // Animated stat counters
+    const statsRef = useRef(null);
+    const statsAnimated = useRef(false);
+
+    useEffect(() => {
+        if (!statsRef.current) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !statsAnimated.current) {
+                        statsAnimated.current = true;
+                        const statEls = statsRef.current.querySelectorAll('[data-stat-target]');
+                        statEls.forEach((el) => {
+                            const target = parseFloat(el.dataset.statTarget);
+                            const suffix = el.dataset.statSuffix || '';
+                            const decimals = el.dataset.statDecimals ? parseInt(el.dataset.statDecimals) : 0;
+                            const obj = { value: 0 };
+                            animate(obj, {
+                                value: target,
+                                duration: 1500,
+                                easing: 'easeOutExpo',
+                                onUpdate: () => {
+                                    el.textContent = obj.value.toFixed(decimals) + suffix;
+                                },
+                            });
+                        });
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+        observer.observe(statsRef.current);
+        return () => observer.disconnect();
+    }, []);
     return (
         <div className={styles.container}>
             <header className={styles.header}>
                 <div className={styles.logo}>
-                    <img src="/src/assets/logo.png" alt="MindEase" style={{ height: 50 }} />
+                    <img src={logo} alt="MindEase" style={{ height: 50 }} />
                 </div>
-                <nav>
+                <nav className={styles.headerNav}>
+                    <Link to="/pricing">
+                        <Button variant="outline">Pricing</Button>
+                    </Link>
                     <Link to="/app/dashboard">
                         <Button>Get Started</Button>
                     </Link>
@@ -50,7 +106,7 @@ const LandingPage = () => {
                     </motion.div>
                 </section>
 
-                <section className={styles.features}>
+                <section className={styles.features} ref={featuresRef}>
                     <div className={styles.featureCard}>
                         <div className={styles.iconBg}><Heart size={24} color="#F5B7B1" /></div>
                         <h3>Mood Tracking</h3>
@@ -73,17 +129,17 @@ const LandingPage = () => {
                         <h2>Why It Matters</h2>
                         <p className={styles.impactSubtitle}>Mental health is a global crisis. The numbers speak for themselves.</p>
 
-                        <div className={styles.statGrid}>
+                        <div className={styles.statGrid} ref={statsRef}>
                             <div className={styles.statItem}>
-                                <span className={styles.statValue}>9.2</span>
+                                <span className={styles.statValue} data-stat-target="9.2" data-stat-decimals="1">0</span>
                                 <span className={styles.statLabel}>Global Suicide Rate<br />(per 100k)</span>
                             </div>
                             <div className={styles.statItem}>
-                                <span className={styles.statValue}>12.4</span>
+                                <span className={styles.statValue} data-stat-target="12.4" data-stat-decimals="1">0</span>
                                 <span className={styles.statLabel}>Europe Region<br />(Highest Rate)</span>
                             </div>
                             <div className={styles.statItem}>
-                                <span className={styles.statValue}>40s</span>
+                                <span className={styles.statValue} data-stat-target="40" data-stat-suffix="s" data-stat-decimals="0">0</span>
                                 <span className={styles.statLabel}>One person dies by<br />suicide every 40 seconds</span>
                             </div>
                         </div>
@@ -145,7 +201,7 @@ const LandingPage = () => {
                         </table>
                     </div>
 
-                    <div className={styles.badges}>
+                    <div className={styles.badges} ref={badgesRef}>
                         <div className={styles.badge}>✅ 5-minute Instant Relief</div>
                         <div className={styles.badge}>✅ No Sign-up Required</div>
                         <div className={styles.badge}>✅ Privacy First</div>

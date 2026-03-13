@@ -234,8 +234,60 @@ th.highlight {
     margin-top: auto;
 }
 
+.headerNav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 @media (max-width: 768px) {
+    .header {
+        padding: var(--spacing-md);
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .headerNav {
+        gap: 0.5rem;
+    }
+
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin-bottom: 2rem;
+    }
+
     .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-md);
+    }
+
+    .statGrid {
+        gap: var(--spacing-lg);
+    }
+
+    .statValue {
         font-size: 2.5rem;
+    }
+
+    .comparison {
+        padding: 0 var(--spacing-md);
+    }
+
+    .badges {
+        gap: var(--spacing-sm);
+    }
+
+    .privacy {
+        margin: 0 var(--spacing-sm) 2rem;
+        padding: 2rem var(--spacing-md);
     }
 }

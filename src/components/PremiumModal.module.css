@@ -128,6 +128,7 @@
     opacity: 0.7;
 }
 
+/* Processing State */
 .processing {
     padding: 4rem 2rem;
     display: flex;
@@ -144,4 +145,98 @@
 .processing p {
     color: var(--color-text-secondary);
     font-size: 0.95rem;
+}
+
+.progressTrack {
+    width: 100%;
+    height: 4px;
+    background: var(--color-bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 4px;
+}
+
+/* Success State */
+.success {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.successIcon {
+    color: #3EBD93;
+    margin-bottom: 0.5rem;
+}
+
+.success h3 {
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+}
+
+.success p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    max-width: 300px;
+}
+
+.confettiContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.confettiPiece {
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+/* Error State */
+.errorState {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.errorState h3 {
+    color: var(--color-text-primary);
+    font-size: 1.4rem;
+}
+
+.errorState p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    max-width: 280px;
+}
+
+.retryBtn {
+    margin-top: 1rem;
+    width: 100%;
+    height: 48px;
+    background: var(--gradient-accent) !important;
+}
+
+.cancelLink {
+    margin-top: 0.5rem;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.cancelLink:hover {
+    opacity: 1;
 }

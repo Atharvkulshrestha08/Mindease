@@ -1,0 +1,234 @@
+.container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Privacy Banner */
+.privacyBanner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(62, 189, 147, 0.08);
+    border: 1px solid rgba(62, 189, 147, 0.2);
+    border-radius: 12px;
+    color: #3EBD93;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+/* Weather Hero */
+.weatherHero {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.weatherEmoji {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.weatherLabel {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.tempLabel {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* Cards */
+.cardTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+/* Forecast Card */
+.forecastCard {
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow-subtle);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.forecastStrip {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+.forecastDay {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.02);
+    transition: background 0.2s;
+}
+
+.forecastDay:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.dayLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+.dayEmoji {
+    font-size: 1.8rem;
+}
+
+.dayWeather {
+    font-size: 0.65rem;
+    color: var(--color-text-secondary);
+}
+
+/* Tip Card */
+.tipCard {
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow-subtle);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tipText {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Do's / Don'ts */
+.dosDonts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dosCard {
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow-subtle);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.doCard {
+    border-left: 4px solid #3EBD93;
+}
+
+.dontCard {
+    border-left: 4px solid #E12D39;
+}
+
+.tipList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tipDo, .tipAvoid {
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+}
+
+.tipDo {
+    background: rgba(62, 189, 147, 0.06);
+}
+
+.tipDo::before {
+    content: '✅ ';
+}
+
+.tipAvoid {
+    background: rgba(225, 45, 57, 0.06);
+}
+
+.tipAvoid::before {
+    content: '❌ ';
+}
+
+/* Privacy Note */
+.privacyNote {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.privacyNote p {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .weatherEmoji {
+        font-size: 3.5rem;
+    }
+
+    .weatherLabel {
+        font-size: 1.3rem;
+    }
+
+    .forecastStrip {
+        gap: 0.25rem;
+    }
+
+    .forecastDay {
+        padding: 0.5rem 0.25rem;
+    }
+
+    .dayEmoji {
+        font-size: 1.3rem;
+    }
+
+    .dosDonts {
+        grid-template-columns: 1fr;
+    }
+}

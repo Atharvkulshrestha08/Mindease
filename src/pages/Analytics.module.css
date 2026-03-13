@@ -1,0 +1,261 @@
+.container {
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.pageTitle {
+    font-size: 1.6rem;
+    color: var(--color-text-primary);
+}
+
+.exportBtns {
+    display: flex;
+    gap: 8px;
+}
+
+/* Score Row */
+.scoreRow {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .scoreRow {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.scoreCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 1.5rem;
+}
+
+.scoreCircle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.scoreSvg {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1);
+}
+
+.scoreValue {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.scoreLabel {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.miniStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.miniStat strong {
+    font-size: 1.6rem;
+    color: var(--color-text-primary);
+}
+
+.miniStat span {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+/* Heatmap */
+.heatmapCard {
+    margin-bottom: 1.5rem;
+}
+
+.heatmap {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    margin-bottom: 0.8rem;
+}
+
+.heatCell {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: var(--color-text-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.heatLegend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: flex-end;
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+}
+
+.legendDot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Charts */
+.chartsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .chartsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chartCard {
+    min-height: 300px;
+}
+
+.emptyText {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: 3rem 0;
+}
+
+.pieLegend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+}
+
+.legendCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+/* Achievements */
+.achievementsCard {
+    padding: 1.5rem;
+}
+
+.achHeader {
+    margin-bottom: 1.2rem;
+}
+
+.achHeader h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.achProgress {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.progressBar {
+    width: 100%;
+    height: 6px;
+    background: var(--color-accent-light);
+    border-radius: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.badgeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 10px;
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+}
+
+.badgeUnlocked {
+    background: var(--color-bg-primary);
+    border: 2px solid var(--color-accent-light);
+}
+
+.badgeLocked {
+    background: var(--color-bg-secondary);
+    border: 2px solid transparent;
+    opacity: 0.5;
+}
+
+.badgeIcon {
+    font-size: 1.8rem;
+}
+
+.badge strong {
+    font-size: 0.82rem;
+    color: var(--color-text-primary);
+}
+
+.badge span {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+}

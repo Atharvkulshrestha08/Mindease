@@ -1,0 +1,340 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    max-height: 85vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-accent-light);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.botAvatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gradient-accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--color-text-primary);
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--color-success);
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-success);
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.privacyBadge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-accent-light);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.chatArea {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.message {
+    display: flex;
+    gap: 10px;
+    max-width: 80%;
+}
+
+.userMsg {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.botMsg {
+    align-self: flex-start;
+}
+
+.msgAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-accent);
+}
+
+.userMsg .msgAvatar {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+}
+
+.msgContent {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-accent-light);
+    border-radius: var(--border-radius-md);
+    padding: 12px 16px;
+    box-shadow: var(--box-shadow-subtle);
+}
+
+.userMsg .msgContent {
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+}
+
+.msgContent p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.msgTime {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--color-text-secondary);
+    margin-top: 6px;
+    opacity: 0.7;
+}
+
+.userMsg .msgTime {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.typingIndicator {
+    display: flex;
+    gap: 4px;
+    padding: 14px 18px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-accent-light);
+    border-radius: var(--border-radius-md);
+}
+
+.typingIndicator span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: bounce 1.4s infinite;
+}
+
+.typingIndicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typingIndicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-6px);
+    }
+}
+
+.quickPrompts {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+}
+
+.quickBtn {
+    padding: 8px 16px;
+    border: 1px solid var(--color-accent-light);
+    border-radius: 20px;
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
+    font-size: 0.82rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quickBtn:hover {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: white;
+}
+
+.inputArea {
+    display: flex;
+    gap: 10px;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-accent-light);
+}
+
+.input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid var(--color-accent-light);
+    border-radius: var(--border-radius-md);
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: var(--color-accent);
+}
+
+.sendBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sendBtn:hover {
+    transform: scale(1.05);
+}
+
+.sendBtn:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .container {
+        height: calc(100vh - 5rem);
+        max-height: none;
+    }
+
+    .header {
+        padding: 0.75rem 0;
+        margin-bottom: 0.25rem;
+    }
+
+    .botAvatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .privacyBadge {
+        padding: 4px 10px;
+        font-size: 0.68rem;
+    }
+
+    .message {
+        max-width: 92%;
+    }
+
+    .msgContent {
+        padding: 10px 14px;
+    }
+
+    .msgContent p {
+        font-size: 0.88rem;
+    }
+
+    .quickPrompts {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    .quickPrompts::-webkit-scrollbar {
+        display: none;
+    }
+
+    .quickBtn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 6px 14px;
+        font-size: 0.78rem;
+    }
+
+    .inputArea {
+        gap: 8px;
+        padding: 0.75rem 0;
+    }
+
+    .input {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    .sendBtn {
+        width: 44px;
+        height: 44px;
+    }
+}

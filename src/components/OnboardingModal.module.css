@@ -1,0 +1,226 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal {
+    background: var(--color-bg-card);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    max-width: 520px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.progress {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.progressDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    transition: all 0.3s ease;
+}
+
+.progressActive {
+    background: var(--color-accent);
+    transform: scale(1.2);
+}
+
+.stepContent {
+    text-align: center;
+}
+
+.stepContent h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+}
+
+.stepIcon {
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+}
+
+.stepDesc {
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.nameInput {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--color-accent-light);
+    border-radius: var(--border-radius-sm);
+    font-size: 1.1rem;
+    font-family: inherit;
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.nameInput:focus {
+    border-color: var(--color-accent);
+}
+
+.goalGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.goalChip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 2px solid var(--color-accent-light);
+    border-radius: var(--border-radius-sm);
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.goalChip:hover {
+    border-color: var(--color-accent);
+}
+
+.goalSelected {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+.goalIcon {
+    font-size: 1.2rem;
+}
+
+.timeOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.timeChip {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 14px 18px;
+    border: 2px solid var(--color-accent-light);
+    border-radius: var(--border-radius-sm);
+    background: transparent;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--color-text-primary);
+}
+
+.timeChip strong {
+    font-size: 1rem;
+}
+
+.timeChip span {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.timeChip:hover {
+    border-color: var(--color-accent);
+}
+
+.timeSelected {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+}
+
+.timeSelected span {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nextBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nextBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nextBtn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .modal {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .stepContent h2 {
+        font-size: 1.3rem;
+    }
+
+    .stepDesc {
+        font-size: 0.88rem;
+    }
+
+    .goalGrid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .goalChip {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+
+    .nameInput {
+        padding: 12px 14px;
+        font-size: 1rem;
+    }
+
+    .timeChip {
+        padding: 12px 14px;
+    }
+
+    .nextBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 24px;
+    }
+}

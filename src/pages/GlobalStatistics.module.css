@@ -5,36 +5,7 @@
     animation: fadeIn 0.5s ease-out;
 }
 
-.header {
-    margin-bottom: 2rem;
-}
-
-.title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    color: var(--color-text-secondary);
-    font-size: 1.1rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.insightSection {
-    background: white;
-    padding: 2rem;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--box-shadow-glass);
-}
-
+/* Hero Header */
 .heroHeader {
     text-align: center;
     padding: 4rem 1rem;
@@ -55,10 +26,11 @@
 }
 
 .heroSubtitle {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     opacity: 0.9;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
 .pulseBadge {
@@ -68,9 +40,11 @@
     border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 800;
+    letter-spacing: 0.15em;
     box-shadow: 0 0 20px rgba(225, 45, 57, 0.4);
 }
 
+/* Impact Banner */
 .impactBaner {
     display: flex;
     align-items: center;
@@ -104,33 +78,84 @@
     background: var(--color-accent-light);
 }
 
-.pulseCard {
-    background: white !important;
-    border: 1px solid rgba(225, 45, 57, 0.1) !important;
-}
-
-.ctaCard {
-    background: var(--gradient-accent) !important;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* Section Dividers */
+.sectionDivider {
     text-align: center;
+    margin: 3.5rem 0 1.5rem;
+    padding: 0 1rem;
 }
 
-.ctaCard h3 {
-    color: white;
-    margin: 1rem 0;
+.sectionIcon {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
 }
 
+.sectionTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0.5rem 0;
+}
+
+.sectionSubtitle {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Tab Container */
+.tabContainer {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.tabButton {
+    padding: 0.5rem 1.2rem;
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    background: var(--color-bg-card);
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tabButton:hover {
+    border-color: var(--tab-color, var(--color-accent));
+    color: var(--tab-color, var(--color-accent));
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.tabActive {
+    background: var(--tab-color, var(--color-accent)) !important;
+    color: white !important;
+    border-color: var(--tab-color, var(--color-accent)) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Chart Cards */
 .chartCard {
     background: var(--color-bg-card);
     border-radius: var(--border-radius-lg);
     padding: 1.5rem;
     box-shadow: var(--box-shadow-subtle);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    height: 400px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
 }
@@ -155,62 +180,106 @@
     grid-column: 1 / -1;
 }
 
-.insightSection {
-    background: linear-gradient(135deg, var(--color-bg-card) 0%, #F8FAFC 100%);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    box-shadow: var(--box-shadow-subtle);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+/* CTA Card */
+.ctaCard {
+    background: var(--gradient-accent) !important;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 220px !important;
+    padding: 3rem 2rem !important;
     margin-top: 2rem;
 }
 
-.insightTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+.ctaCard h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin: 1rem 0 0.5rem;
 }
 
-.insightText {
-    color: var(--color-text-secondary);
-    line-height: 1.8;
+.ctaCard p {
+    opacity: 0.9;
+    max-width: 600px;
+    line-height: 1.6;
     font-size: 1.05rem;
-    margin-bottom: 1rem;
 }
 
-.highlight {
+/* Custom Tooltip */
+.customTooltip {
+    background: white;
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border: none;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.tooltipLabel {
+    font-weight: 700;
+    margin-bottom: 4px;
     color: var(--color-text-primary);
-    font-weight: 600;
-    background: rgba(62, 189, 147, 0.1);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
+    font-size: 0.9rem;
 }
 
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
     }
 
     .chartCard {
-        height: 350px;
+        min-height: 350px;
     }
 
     .container {
         padding: 1rem;
+    }
+
+    .heroTitle {
+        font-size: 2.2rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .impactBaner {
+        margin: 0 0.5rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .bannerDivider {
+        width: 60px;
+        height: 1px;
+    }
+
+    .sectionTitle {
+        font-size: 1.4rem;
+    }
+
+    .tabContainer {
+        gap: 0.35rem;
+    }
+
+    .tabButton {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.9rem;
     }
 }

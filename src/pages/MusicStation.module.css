@@ -209,3 +209,52 @@
         transform: rotate(360deg);
     }
 }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .section {
+        padding: 1.25rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .videoList {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .uploadArea {
+        padding: 1.25rem;
+    }
+
+    .nowPlaying {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .spotifyBox {
+        padding: 1rem;
+    }
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .videoList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,160 @@
+.container {
+    padding: 0;
+}
+
+.pageTitle {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+}
+
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.statCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.statValue {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.statLabel {
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statsRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+.logCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.timeInputs {
+    display: flex;
+    gap: 1rem;
+}
+
+.timeField {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--color-text-secondary);
+}
+
+.timeField label {
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.timeInput {
+    padding: 10px 14px;
+    border: 2px solid var(--color-accent-light);
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.timeInput:focus {
+    border-color: var(--color-accent);
+}
+
+.qualitySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.qualitySection label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.qualityStars {
+    display: flex;
+    gap: 6px;
+}
+
+.starBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 4px;
+}
+
+.starBtn:hover {
+    transform: scale(1.2);
+}
+
+.qualityLabel {
+    font-size: 0.82rem;
+    color: var(--color-warning);
+    font-weight: 500;
+}
+
+.chartCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.chartContainer {
+    flex: 1;
+    min-height: 250px;
+}
+
+.tips {
+    margin-top: 0;
+}
+
+.tipCard {
+    padding: 1.2rem;
+}
+
+.tipCard h4 {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.tipCard ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--color-text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.8;
+}
